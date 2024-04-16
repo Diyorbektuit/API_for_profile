@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import TgUser
+from .models import Profile
 
 
-class TgUserSerializer(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TgUser
-        fields = ['user', 'username', 'tg_id', 'tg_phone', 'bio']
+        model = Profile
+        fields = ['user', 'phone', 'photo', 'bio']
 

@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import TgUser
+from .models import Profile
 # Register your models here.
 
 
-@admin.register(TgUser)
-class TgUserAdmin(admin.ModelAdmin):
-    list_display = ['tg_id', 'username']
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'phone', 'photo', 'bio']
 

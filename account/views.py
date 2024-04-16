@@ -17,5 +17,6 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
 
+
 class CustomTokenRefreshView(TokenRefreshView):
     permission_classes = (permissions.AllowAny,)

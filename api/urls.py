@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import tg_users_views
+from . import profile_views
+
 urlpatterns = [
-    path('tg_users/', tg_users_views.TgUsersList.as_view(), name='tg-users-list'),
-    path('tg_users/<int:pk>/', tg_users_views.TgUserDetail.as_view(), name='tg-users-detail'),
-    path('tg_users/<int:pk>/update/', tg_users_views.TgUserUpdate.as_view(), name='tg-users-update'),
-    path('tg_users/<int:pk>/delete/', tg_users_views.TgUserDelete.as_view(), name='tg-users-delete'),
-    path('tg_users/create/', tg_users_views.TgUserCreate.as_view(), name='tg-users-create'),
+    path('profiles/', profile_views.ProfilesList.as_view(), name='profile-list'),
+    path('profiles/<int:pk>/', profile_views.ProfileDetail.as_view(), name='profile-detail'),
+    path('profiles/<int:pk>/update/', profile_views.ProfileUpdate.as_view(), name='profile-update'),
+    path('profiles/<int:pk>/delete/', profile_views.ProfileDelete.as_view(), name='profile-delete'),
+    path('profiles/create/', profile_views.ProfileCreate.as_view(), name='profile-create'),
 
 ]
