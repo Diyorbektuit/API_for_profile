@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'rest_framework',
 
-    'api.apps.ApiConfig',
+    'profile.apps.ApiConfig',
     'account.apps.AccountConfig',
+    'posts.apps.PostsConfig',
 
 ]
 
@@ -87,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'profile',
         'USER': 'postgres',
-        'PASSWORD': 'diyorbek0906',
+        'PASSWORD': str(os.getenv('POSTGRES_PASSWORD')),
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -133,9 +134,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny'
-    ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
