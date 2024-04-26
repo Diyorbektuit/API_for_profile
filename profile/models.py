@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     phone = models.CharField(max_length=123, unique=True)
-    photo = models.ImageField(upload_to='profile_pics')
+    photo = models.ImageField(upload_to='profile_pics',)
     bio = models.CharField(max_length=123)
 
     class Meta:

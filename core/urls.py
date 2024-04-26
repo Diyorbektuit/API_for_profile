@@ -39,12 +39,13 @@ admin.site.index_title = "Api site administration"
 
 
 urlpatterns = [
-    path('admin_diyorbek/', admin.site.urls, name='admin_site'),
+    path('admin/', admin.site.urls, name='admin_site'),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin_diyorbek/', admin.site.urls),
-    path('api/', include('api.urls')),
+    path('', include('profile.urls')),
     path('', include('account.urls')),
+    path('', include('posts.urls')),
 
 ]

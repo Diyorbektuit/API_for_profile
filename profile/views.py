@@ -1,7 +1,7 @@
-from api.serializers import ProfileSerializer
-from api.models import Profile
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView, RetrieveUpdateDestroyAPIView
+from profile.serializers import ProfileSerializer
+from profile.models import Profile
+from rest_framework.permissions import IsAdminUser
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 
 
 class ProfilesList(ListAPIView):
@@ -25,11 +25,11 @@ class ProfileCreate(CreateAPIView):
 class ProfileUpdate(UpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permisiion_classes = []
+    permisiion_classes = [IsAdminUser]
 
 
 class ProfileDelete(DestroyAPIView):
-    permisiion_classes = []
+    permisiion_classes = [IsAdminUser]
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
